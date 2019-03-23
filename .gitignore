@@ -1,0 +1,4 @@
+.vscode/
+tests/
+.DS_Store
+*.out*
