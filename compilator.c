@@ -83,11 +83,15 @@ int main(int argv, char *argc[]) {
             if(strcmp(ent->d_name, ".") == 0 || strcmp(ent->d_name, "..") == 0 || strstr(ent->d_name, ".out") > 0 ) {
                 continue;
             }
+    
             printf("Compiling %s ...\n", ent->d_name);
+            
             inputFilePath = (char *) malloc((strlen(INPUT_FOLDER) + strlen(ent->d_name) + 2) * sizeof(char));
             sprintf(inputFilePath, "%s/%s", INPUT_FOLDER, ent->d_name);
             outputFilePath = getOutputFilePath(inputFilePath);
+            
             compile(inputFilePath, outputFilePath);
+            
             free(inputFilePath);
             free(outputFilePath);
         }

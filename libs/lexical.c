@@ -164,7 +164,7 @@ int getNextToken() {
                 nCh=pCrtCh-pStartCh;
                 if(nCh==5 && !memcmp(pStartCh, "break", 5)) tk=addTk(BREAK);
                 else if(nCh==4 && !memcmp(pStartCh, "char", 4)) tk=addTk(CHAR);
-                else if(nCh==5 && !memcmp(pStartCh, "double", 5)) tk=addTk(DOUBLE);
+                else if(nCh==6 && !memcmp(pStartCh, "double", 6)) tk=addTk(DOUBLE);
                 else if(nCh==4 && !memcmp(pStartCh, "else", 4)) tk=addTk(ELSE);
                 else if(nCh==3 && !memcmp(pStartCh, "for", 3)) tk=addTk(FOR);
                 else if(nCh==2 && !memcmp(pStartCh, "if", 2)) tk=addTk(IF);
@@ -257,7 +257,6 @@ int getNextToken() {
                     state=13;
                 }
                 else {
-                    pCrtCh++;
                     state=15;
                 }
                 break;
@@ -339,7 +338,6 @@ int getNextToken() {
                     state=25;
                 }
                 else {
-                    pCrtCh++;
                     state=26;
                 }
                 break;
@@ -355,7 +353,6 @@ int getNextToken() {
                     state=28;
                 }
                 else {
-                    pCrtCh++;
                     state=29;
                 }
                 break;
@@ -371,7 +368,6 @@ int getNextToken() {
                     state=31;
                 }
                 else {
-                    pCrtCh++;
                     state=32;
                 }
                 break;
@@ -387,7 +383,6 @@ int getNextToken() {
                     state=34;
                 }
                 else {
-                    pCrtCh++;
                     state=35;
                 }
                 break;
