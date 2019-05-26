@@ -1,6 +1,8 @@
 #ifndef UTIL
 #define UTIL
 
+#define SAFEALLOC(var,Type) if((var=(Type*)malloc(sizeof(Type)))==NULL) err("not enough memory");
+
 void err(const char *fmt, ...);
 
 char *createString(const char *startCh, const char *endCh);

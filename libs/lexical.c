@@ -6,7 +6,6 @@
 #include "../headers/util.h"
 #include "../headers/lexical.h"
 
-#define SAFEALLOC(var,Type) if((var=(Type*)malloc(sizeof(Type)))==NULL) err("not enough memory");
 #define ESCAPED_CHARS_COMPARISON(c) c == 'a' || c == 'b' || c == 'f' || c == 'n' || c == 'r' || c == 't' || c == 'v' || c == '\'' || c == '?' || c == '"' || c == '\\' || c == '0'
 #define HEXA_CHARS_COMPARISON(c) isnumber(c) || (c > 'a' && c < 'f') || (c > 'A' && c < 'F')
 
@@ -579,7 +578,7 @@ int getNextToken() {
     }
 }
 
-void cleanInit(char *buffer) {
+void initLexical(char *buffer) {
     tokens = NULL;
     lastToken = NULL;
     currentLine = 1;
@@ -588,7 +587,7 @@ void cleanInit(char *buffer) {
 
 Token *lexicalAnalysis(char *buffer) {
     int readToken;
-    cleanInit(buffer);
+    initLexical(buffer);
     do {
         readToken = getNextToken();
     } while(readToken != END);
